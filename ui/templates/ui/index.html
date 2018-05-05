@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hearthstone Vote</title>
+</head>
+
+<body>
+
+  <div id="react-root">
+  </div>
+
+  <script type="text/javascript" src="{% if settings.DEBUG %}http://{{request.META.HTTP_HOST|cut:':8000'}}:8080/assets/bundle.js{% else %}{% static 'bundle.js' %}{% endif %}"></script>
+
+</body>
+
+</html>
