@@ -22,7 +22,6 @@ class UserInterface extends React.PureComponent {
   componentDidMount() {}
 
   exampleClick() {
-    console.log(this, this.props);
     this.voteSocket.send(JSON.stringify({
       message: 'this is my message from browser',
     }));
