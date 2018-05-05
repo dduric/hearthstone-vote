@@ -2,12 +2,15 @@ import json
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
+from redis.client import Redis
 
 
 class IndexConsumer(WebsocketConsumer):
     
     def connect(self):
-        self.room_group_name = 'index_channel'
+        self.room_group_name = 'index_group'
+        redis_conn = Redis("localhost", 6379)
+        redis_conn.sadd("readers", self.channel_name)
         
         # Join index_channel
         async_to_sync(self.channel_layer.group_add)(

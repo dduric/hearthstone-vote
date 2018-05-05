@@ -19,7 +19,9 @@ class UserInterface extends React.PureComponent {
     this.exampleClick = this.exampleClick.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log('');
+  }
 
   exampleClick() {
     this.voteSocket.send(JSON.stringify({
