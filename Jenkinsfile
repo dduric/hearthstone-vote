@@ -1,5 +1,7 @@
 pipeline {
-	sh 'whoami'
+	steps {
+		sh 'whoami'
+	}
 	agent { docker { image 'python:3.6.5-stretch' } }
 	stages {
 		stage('build') {
