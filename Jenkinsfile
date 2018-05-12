@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                'python --version'
+                '/home/dalibor/PROJ/VoteHearthstone/venv-python3.6/bin/python --version'
             }
         }
     }
