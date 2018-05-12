@@ -1,0 +1,7 @@
+#PLAY, #DECK, #HAND, #GRAVEYARD, #REMOVEDFROMGAME, #SETASIDE, #SECRET {
+  border-width: thin;
+  border-color: red;
+  border-style: dashed;
+  min-height: 30px;
+  margin: 5px;
+}

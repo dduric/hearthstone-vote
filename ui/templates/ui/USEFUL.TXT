@@ -1,0 +1,4 @@
+# link template for hearthstone art
+https://art.hearthstonejson.com/v1/tiles/CS2_235.jpg
+https://art.hearthstonejson.com/v1/render/latest/enUS/512x/CS2_235.png
+https://art.hearthstonejson.com/v1/render/latest/enUS/256x/CS2_235.png

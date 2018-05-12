@@ -1,30 +1,19 @@
-import json
-
-from aioredis.pubsub import Channel
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from jedi.evaluate.context import instance
-from redis.client import Redis
 
 
 @csrf_exempt
 def state_update(request):
-    redis_conn = Redis('localhost', 6379)
-    
-    print(redis_conn.smembers('readers'))
-    for reply_channel in redis_conn.smembers('readers'):
-        Channel(reply_channel).send({
-            'text': json.dumps({
-                'id': 1,
-                'content': 'content',
-            })
-        })
-    
-#     async_to_sync(v.group_send)('index_group', {
-#         {
-#             'type': 'game_message',
-#             'message': 'view message',
-#         }
-#     })
-    
+    channel_layer = get_channel_layer()
+
+    async_to_sync(channel_layer.group_send)(
+        'index_group',
+        {
+            'type': 'game_message',
+            'message': f'SENT FROM A SIGNAL: {request.POST}',
+        }
+    )
+
     return HttpResponse('OK')
