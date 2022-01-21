@@ -10,7 +10,7 @@ Flask==1.0.2
 hearthstone==4.3.5
 hearthstone-data==24118.1
 idna==2.6
-ipython==6.3.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 itsdangerous==0.24
 jedi==0.12.0
